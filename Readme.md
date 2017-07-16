@@ -1,5 +1,5 @@
 Build service1 and service2 docker images (from folders containing Dockerfile):
-==================================================================================
+===============================================================================
 
 docker build -t sjd300671/service1 .
 
