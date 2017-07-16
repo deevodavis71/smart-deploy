@@ -1,10 +1,12 @@
 Build service1 and service2 docker images (from folders containing Dockerfile):
+==================================================================================
 
 docker build -t sjd300671/service1 .
 
 docker build -t sjd300671/service2 .
 
 Create swarm and overlay network:
+===================================
 
 docker swarm leave —force
 
@@ -13,6 +15,7 @@ docker swarm init
 docker network create --driver overlay overlaynetwork
 
 Deploy services:
+=================
 
 docker service ls
 
@@ -22,12 +25,14 @@ docker service create --replicas 2 --network overlaynetwork --name my_service2 -
 
 docker service ls
 
-From outside the swarm: 
+From outside the swarm:
+========================= 
 
 curl http://localhost:10000/api/hostname
 curl http://localhost:10001/api/hostname
 
 Access services inside a container (using DNS):
+==================================================
 
 docker ps
 
@@ -43,6 +48,7 @@ curl http://my_service1:10000/api/hostname
 curl http://my_service2:10001/api/hostname
 
 Remove services from outside swarm:
+===================================
 
 docker service rm my_service1
 
